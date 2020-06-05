@@ -1,4 +1,4 @@
-name: Build RM2100
+name: Build RM2100 R2100
 
 on: 
   release:
@@ -10,8 +10,8 @@ on:
   #    - master
   schedule:
     - cron: 0 17 * * 4
-  watch:
-    types: [started]
+#  watch:
+#    types: [started]
 
 jobs:
   build:
@@ -99,7 +99,7 @@ jobs:
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v1-release
       with:
-        repo_token: RM2100
+        repo_token: ${{ secrets.R_TOKEN }}
         file: /opt/images/*.trx
         tag: AtuoBuild
         overwrite: true
